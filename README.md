@@ -20,6 +20,21 @@ it, simply add the following line to your Podfile:
 pod 'PGContinueDownload'
 ```
 
+## Use
+```objc-c
+  
+ [[PGDownLoaderManager shareInstance] downLoadWithURL:kURL msgBlock:^(long long totalSize, NSString * _Nonnull downLoadedPath) {
+        NSLog(@"开始下载");
+    } progress:^(float progress) {
+        NSLog(@"下载中--%f", progress);
+    } success:^(NSString * _Nonnull downLoadedPath) {
+        NSLog(@"完成");
+    } failed:^(NSString * _Nonnull errorMsg) {
+        NSLog(@"失败");
+    }];
+
+```
+
 ## Author
 
 PggMan, gepeng7711@gmail.com
