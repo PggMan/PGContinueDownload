@@ -21,7 +21,7 @@ pod 'PGContinueDownload'
 ```
 
 ## Use
-```objc-c
+```objective-c
   
  [[PGDownLoaderManager shareInstance] downLoadWithURL:kURL msgBlock:^(long long totalSize, NSString * _Nonnull downLoadedPath) {
         NSLog(@"开始下载");
