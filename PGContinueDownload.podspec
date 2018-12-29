@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PGContinueDownload'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '文件下载'
 
 # This description is used to generate tags and improve search results.

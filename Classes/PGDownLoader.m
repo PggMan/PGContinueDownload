@@ -1,4 +1,4 @@
-//
+///
 //  PGDownLoader.m
 //  PGContinueDownload
 //
@@ -85,18 +85,18 @@
         }
     }
     
-//    // 检测, 本地有没有下载过临时缓存
+    //    // 检测, 本地有没有下载过临时缓存
     if ([PGFileTool fileExistsAtPath:_filePathName]) {
         !self.loadSuccessBlock?:
         self.loadSuccessBlock(_filePathName);
-
+        
         return;
     }
     // 清空任务回话
     [self cancel];
     
     // 下载
-    _fileTmpSize = [PGFileTool fileSizeAtPath:self.temFilePath];
+    _fileTmpSize = [PGFileTool fileSizeAtPath:_temFilePathName];
     [self downLoadWithURL:url offset:_fileTmpSize];
 }
 
@@ -144,10 +144,10 @@
     }
 }
 
-// 停止并且清空
+// 停止并且清除
 - (void)cancelAndClean{
     [self cancel];
-    [PGFileTool removeFileAtPath:self.temFilePath];
+    [PGFileTool removeFileAtPath:_temFilePathName];
     self.state = PGDownLoaderStateNot;
 }
 
@@ -162,10 +162,10 @@ didReceiveResponse:(NSHTTPURLResponse *)response
 {
     NSString *rangeText = response.allHeaderFields[@"Content-Range"];
     _totalSize = [[rangeText componentsSeparatedByString:@"/"].lastObject longLongValue];
-    if (_fileTmpSize == _totalSize) {
+    if (_fileTmpSize == _totalSize && _totalSize != 0) {
         // 校验文件完整性
         if (self.fileMd5.integerValue > 0) {
-            NSString *locFileMd5 = [NSString pg_getFileMD5WithPath:self.temFilePath];
+            NSString *locFileMd5 = [NSString pg_getFileMD5WithPath:_temFilePathName];
             if ([self.fileMd5 isEqualToString:locFileMd5]) {
                 [PGFileTool moveFileFromPath:_temFilePathName
                                       toPath:_filePathName];
@@ -176,7 +176,7 @@ didReceiveResponse:(NSHTTPURLResponse *)response
                 // 文件不完整
                 _fileTmpSize += kMaskCode;
             }
-        // 不校验
+            // 不校验
         }else{
             [PGFileTool moveFileFromPath:_temFilePathName
                                   toPath:_filePathName];
@@ -186,17 +186,17 @@ didReceiveResponse:(NSHTTPURLResponse *)response
     }
     
     if (_fileTmpSize > _totalSize) {
-        [PGFileTool removeFileAtPath:self.temFilePath];
-        [PGFileTool removeFileAtPath:self.filePath];
+        [PGFileTool removeFileAtPath:_temFilePathName];
+        [PGFileTool removeFileAtPath:_filePathName];
         completionHandler(NSURLSessionResponseCancel);
         [self downLoadWithURL:response.URL];
     }
     
     !self.messageBlock?:
-    self.messageBlock(_totalSize, self.filePath);
- 
+    self.messageBlock(_totalSize, _temFilePathName);
+    
     self.outputStream = [NSOutputStream
-                         outputStreamToFileAtPath:self.temFilePath
+                         outputStreamToFileAtPath:_temFilePathName
                          append:YES];
     
     [self.outputStream open];
@@ -231,7 +231,7 @@ didCompleteWithError:(NSError *)error{
             // 校验文件完整性
             // 校验
             if (self.fileMd5.integerValue > 0) {
-                NSString *locFileMd5 = [NSString pg_getFileMD5WithPath:self.temFilePath];
+                NSString *locFileMd5 = [NSString pg_getFileMD5WithPath:_filePathName];
                 if ([self.fileMd5 isEqualToString:locFileMd5]) {
                     [PGFileTool moveFileFromPath:_temFilePathName
                                           toPath:_filePathName];
@@ -242,7 +242,7 @@ didCompleteWithError:(NSError *)error{
                     self.state = PGDownLoaderStateFailed;
                     !self.loadFailedBlock?:self.loadFailedBlock(@"文件不完整");
                 }
-            // 不校验
+                // 不校验
             }else{
                 [PGFileTool moveFileFromPath:_temFilePathName
                                       toPath:_filePathName];
@@ -255,7 +255,7 @@ didCompleteWithError:(NSError *)error{
         self.state = PGDownLoaderStateFailed;
         !self.loadFailedBlock?:self.loadFailedBlock(error.localizedDescription);
     }
-
+    
     
 }
 #pragma mark - setter getter
