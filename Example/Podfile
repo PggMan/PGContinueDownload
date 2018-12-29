@@ -1,0 +1,6 @@
+use_frameworks!
+target 'PGContinueDownload_Tests' do
+  pod 'PGContinueDownload', :path => '../'
+  
+  
+end
