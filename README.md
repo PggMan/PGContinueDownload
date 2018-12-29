@@ -22,7 +22,7 @@ pod 'PGContinueDownload'
 
 ## Author
 
-PggMan, 78715199@qq.com
+PggMan, gepeng7711@gmail.com
 
 ## License
 

@@ -24,13 +24,13 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/PggMan/PGContinueDownload'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'PggMan' => '78715199@qq.com' }
+  s.author           = { 'PggMan' => 'gepeng7711@gmail.com' }
   s.source           = { :git => 'https://github.com/PggMan/PGContinueDownload.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'PGContinueDownload/Classes/**/*'
+  s.source_files = 'Classes/**/*'
   
   # s.resource_bundles = {
   #   'PGContinueDownload' => ['PGContinueDownload/Assets/*.png']

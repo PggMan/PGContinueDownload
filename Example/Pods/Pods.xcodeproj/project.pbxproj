@@ -35,14 +35,14 @@
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5DCB2A0F2BAB9B4CF70BD55A86CFFBB2 /* PGContinueDownload-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PGContinueDownload-dummy.m"; sourceTree = "<group>"; };
 		6496A7D2DA9D4E5FB08476B677B95895 /* PGContinueDownload-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGContinueDownload-prefix.pch"; sourceTree = "<group>"; };
-		64A24FCB21D71EBD0035E774 /* NSString+PGMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PGMD5.m"; sourceTree = "<group>"; };
-		64A24FCC21D71EBD0035E774 /* PGFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFileTool.m; sourceTree = "<group>"; };
-		64A24FCD21D71EBD0035E774 /* PGDownLoaderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDownLoaderManager.m; sourceTree = "<group>"; };
-		64A24FCE21D71EBD0035E774 /* PGDownLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDownLoader.m; sourceTree = "<group>"; };
-		64A24FCF21D71EBD0035E774 /* PGDownLoaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDownLoaderManager.h; sourceTree = "<group>"; };
-		64A24FD021D71EBD0035E774 /* PGFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFileTool.h; sourceTree = "<group>"; };
-		64A24FD121D71EBD0035E774 /* NSString+PGMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PGMD5.h"; sourceTree = "<group>"; };
-		64A24FD221D71EBD0035E774 /* PGDownLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDownLoader.h; sourceTree = "<group>"; };
+		64A24FDD21D729F60035E774 /* PGDownLoaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDownLoaderManager.h; sourceTree = "<group>"; };
+		64A24FDE21D729F60035E774 /* PGDownLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGDownLoader.h; sourceTree = "<group>"; };
+		64A24FDF21D729F60035E774 /* NSString+PGMD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+PGMD5.m"; sourceTree = "<group>"; };
+		64A24FE021D729F60035E774 /* PGDownLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDownLoader.m; sourceTree = "<group>"; };
+		64A24FE121D729F60035E774 /* PGFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGFileTool.m; sourceTree = "<group>"; };
+		64A24FE221D729F60035E774 /* NSString+PGMD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+PGMD5.h"; sourceTree = "<group>"; };
+		64A24FE321D729F60035E774 /* PGDownLoaderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PGDownLoaderManager.m; sourceTree = "<group>"; };
+		64A24FE421D729F60035E774 /* PGFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PGFileTool.h; sourceTree = "<group>"; };
 		65D76B8197B8071BC03B147815140A9F /* Pods-PGContinueDownload_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PGContinueDownload_Tests-dummy.m"; sourceTree = "<group>"; };
 		7367D056F08F92DAA2486B9F9A181DBD /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7AF27AD7CFBA6E0B71469C8D582BEE98 /* Pods-PGContinueDownload_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGContinueDownload_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		28220B0A652EA5B34812DFEC7A1BAD11 /* PGContinueDownload */ = {
 			isa = PBXGroup;
 			children = (
-				64A24FCA21D71EBC0035E774 /* Classes */,
+				64A24FDC21D7276A0035E774 /* Classes */,
 				8BA0A9F0869B42496AAC8B8CCCC377DE /* Pod */,
 				91F071F34FA70D7C08A029D415F33FFF /* Support Files */,
 			);
@@ -125,17 +125,17 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		64A24FCA21D71EBC0035E774 /* Classes */ = {
+		64A24FDC21D7276A0035E774 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				64A24FCB21D71EBD0035E774 /* NSString+PGMD5.m */,
-				64A24FCC21D71EBD0035E774 /* PGFileTool.m */,
-				64A24FCD21D71EBD0035E774 /* PGDownLoaderManager.m */,
-				64A24FCE21D71EBD0035E774 /* PGDownLoader.m */,
-				64A24FCF21D71EBD0035E774 /* PGDownLoaderManager.h */,
-				64A24FD021D71EBD0035E774 /* PGFileTool.h */,
-				64A24FD121D71EBD0035E774 /* NSString+PGMD5.h */,
-				64A24FD221D71EBD0035E774 /* PGDownLoader.h */,
+				64A24FE221D729F60035E774 /* NSString+PGMD5.h */,
+				64A24FDF21D729F60035E774 /* NSString+PGMD5.m */,
+				64A24FDE21D729F60035E774 /* PGDownLoader.h */,
+				64A24FE021D729F60035E774 /* PGDownLoader.m */,
+				64A24FDD21D729F60035E774 /* PGDownLoaderManager.h */,
+				64A24FE321D729F60035E774 /* PGDownLoaderManager.m */,
+				64A24FE421D729F60035E774 /* PGFileTool.h */,
+				64A24FE121D729F60035E774 /* PGFileTool.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
