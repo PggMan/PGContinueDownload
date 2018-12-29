@@ -1,0 +1,6 @@
+framework module PGContinueDownload {
+  umbrella header "PGContinueDownload-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - PGContinueDownload (0.1.0)
+
+DEPENDENCIES:
+  - PGContinueDownload (from `../`)
+
+EXTERNAL SOURCES:
+  PGContinueDownload:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  PGContinueDownload: f0993bde31ef077ee1f2255fa2ae6d6bb6f62952
+
+PODFILE CHECKSUM: 38a5f7ad6359674c9b079988939b75519f44eded
+
+COCOAPODS: 1.5.3
